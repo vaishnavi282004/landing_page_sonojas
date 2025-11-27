@@ -30,9 +30,10 @@ async function appendToExcel(row) {
       'Name',
       'Phone',
       'Email',
+      'Qualification',
       'Course',
-      'University',
-      'Specialization'
+      'Specialization',
+      'University'
     ]);
   }
 
@@ -41,9 +42,10 @@ async function appendToExcel(row) {
     row.name || '',
     row.phone || '',
     row.email || '',
+    row.qualification || '',
     row.course || '',
-    row.university || '',
-    row.specialization || ''
+    row.specialization || '',
+    row.university || ''
   ]);
 
   await workbook.xlsx.writeFile(EXCEL_FILE);
@@ -56,15 +58,16 @@ function appendToCsv(row) {
     row.name || '',
     row.phone || '',
     row.email || '',
+    row.qualification || '',
     row.course || '',
-    row.university || '',
-    row.specialization || ''
+    row.specialization || '',
+    row.university || ''
   ].join(',') + '\n';
 
   if (isNew) {
     fs.writeFileSync(
       CSV_FILE,
-      'Timestamp,Name,Phone,Email,Course,University,Specialization\n' + line,
+      'Timestamp,Name,Phone,Email,Qualification,Course,Specialization,University\n' + line,
       'utf8'
     );
   } else {
@@ -73,11 +76,11 @@ function appendToCsv(row) {
 }
 
 app.post('/api/inquiry', async (req, res) => {
-  const { name, phone, email, course, university, specialization } = req.body || {};
+  const { name, phone, email, qualification, course, specialization, university } = req.body || {};
 
   try {
-    await appendToExcel({ name, phone, email, course, university, specialization });
-    appendToCsv({ name, phone, email, course, university, specialization });
+    await appendToExcel({ name, phone, email, qualification, course, specialization, university });
+    appendToCsv({ name, phone, email, qualification, course, specialization, university });
     res.json({ ok: true });
   } catch (err) {
     console.error('Excel write error:', err);

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sonojas /Sonojas Services Private Limited</title>
+  <title>Sonojas - Sonojas Services Private Limited</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -16,7 +16,8 @@
         <h1 class="brand">SONOJAS</h1>
         <p class="tagline">SONOJAS SERVICES PRIVATE LIMITED</p>
         <p class="hero-caption">
-          Empowering careers with trusted university programs, skill training and industry‑ready solutions.
+          <span class="line1">Empowering careers with trusted university programs,</span>
+          <span class="line2">skill training and industry‑ready solutions.</span>
         </p>
         <p class="hero-email">
           ✉️  Info.sonojas@gmail.com
@@ -29,6 +30,11 @@
     </div>
   </header>
 
+  <!-- MAIN CONTENT LAYOUT -->
+  <div class="page-layout">
+
+  <!-- LEFT COLUMN: Courses + Contact -->
+  <div class="left-column">
   <!-- LEFT COURSES PANEL -->
   <div class="left-courses-panel">
     <div class="left-courses-inner">
@@ -162,7 +168,7 @@
     </div>
   </div>
 
-  <!-- NEW: CONTACT US BOX UNDER COURSES -->
+  <!-- CONTACT US BOX UNDER COURSES -->
   <div class="left-contact-panel">
     <div class="left-contact-inner">
       <h3 class="left-contact-title">Contact Us</h3>
@@ -176,13 +182,14 @@
       </div>
     </div>
   </div>
+  </div> <!-- /.left-column -->
 
-  <!-- CENTER CONTENT (about + form etc.) -->
+  <!-- CENTER CONTENT (Enquiry + About + Universities + Follow Us) -->
   <div class="center-live">
     <div class="site-inner">
       <main class="container main">
 
-        <!-- 1. FORM upar -->
+        <!-- 1. FORM -->
         <section id="inquiry" class="card">
           <h2 id="formTitle">Enquiry Now</h2>
           <form id="inquiryForm">
@@ -240,7 +247,7 @@
             <label id="label-spec">
               <span id="labelSpec">Specialization</span>
               <select id="specialization" name="specialization" disabled>
-                <option value="">Select specialization</option>
+                <option value="All">All</option>
               </select>
             </label>
 
@@ -252,20 +259,18 @@
               </select>
             </label>
 
-            
-
             <button type="submit" class="btn" id="submitBtn">Submit Inquiry</button>
           </form>
 
           <div id="success" class="success" aria-live="polite" hidden></div>
         </section>
 
-        <!-- 2. ABOUT US neeche -->
+        <!-- 2. ABOUT US -->
         <section id="about" class="card">
           <h2>About Sonojas</h2>
 
           <p>
-            Sonojas Services Private Limited  is a professional education & services company
+            Sonojas Services Private Limited is a professional education & services company
             helping students connect with <strong>UG &amp; PG university programmes</strong> across India.  
             We work with reputed universities to offer <strong>Online, Distance and Open Learning</strong> courses in
             Management, Commerce, IT, Arts and other streams.
@@ -285,11 +290,11 @@
 
         </section>
 
-        <!-- 3. Partner Universities same jagah -->
+        <!-- 3. Partner Universities -->
         <section id="partners" class="card">
-          <h2> Universities</h2>
+          <h2>Universities</h2>
           <div class="logo-marquee" aria-hidden="false">
-            <!-- Row 1: pehla half logos slow scroll left -->
+            <!-- Row 1 -->
             <div class="marquee-row row-top">
               <div class="marquee-track">
                 <img src="logo1.png" alt="University 1" />
@@ -326,7 +331,7 @@
               </div>
             </div>
 
-            <!-- Row 2: baaki logos, thoda offset scroll -->
+            <!-- Row 2 -->
             <div class="marquee-row row-bottom">
               <div class="marquee-track">
                 <img src="logo16.png" alt="University 16" />
@@ -367,11 +372,11 @@
           </div>
         </section>
 
-        <!-- FOLLOW US ON (social icons under universities) -->
+        <!-- FOLLOW US ON -->
         <section class="card follow-section">
           <div class="follow-inner">
             <h3 class="follow-title">Follow us on</h3>
-            <!-- WhatsApp direct chat (number link) -->
+            <!-- WhatsApp direct chat -->
             <a class="follow-number" href="https://wa.me/917248855566" target="_blank" rel="noopener"
                aria-label="WhatsApp support 7248855566">
               <img src="C.png" alt="WhatsApp icon" class="follow-logo" />
@@ -380,22 +385,20 @@
            
             <!-- Social icons row -->
             <div class="follow-row">
-
                <!-- WhatsApp Channel -->
               <a class="follow-link" href="https://whatsapp.com/channel/0029Vb6pLSz6xCSI9OCFzK1c" target="_blank" rel="noopener"
                  aria-label="WhatsApp Channel">
                 <img src="D.png" alt="WhatsApp icon" class="follow-logo" />
               </a>
 
-            
-                <!-- Instagram -->
-                <a class="follow-link" href="https://www.instagram.com/sonojasofficial/" target="_blank" rel="noopener"
+              <!-- Instagram -->
+              <a class="follow-link" href="https://www.instagram.com/sonojasofficial/" target="_blank" rel="noopener"
                   aria-label="Instagram">
                 <img src="E.png" alt="Instagram icon" class="follow-logo" />
               </a>
 
               <!-- Facebook -->
-                <a class="follow-link" href="https://www.facebook.com/sonojasofficial/" target="_blank" rel="noopener"
+              <a class="follow-link" href="https://www.facebook.com/sonojasofficial/" target="_blank" rel="noopener"
                   aria-label="Facebook">
                 <img src="F.png" alt="Facebook icon" class="follow-logo" />
               </a>
@@ -407,6 +410,8 @@
     </div>
   </div>
 
+  <!-- RIGHT COLUMN: Notice + Services -->
+  <div class="right-column">
   <div class="right-notice-panel">
     <div class="right-notice-inner">
       <h3 class="right-notice-title">Notices</h3>
@@ -419,7 +424,7 @@
             New tie‑ups with reputed universities for MBA, MCA and BCA programmes.
           </div>
           <div class="notice-item">
-            Counseling slots available t – book your appointment today.
+            Counseling slots available – book your appointment today.
           </div>
           <div class="notice-item">
             Sonojas assisting with documentation & admission processing for July 2025 session.
@@ -480,6 +485,10 @@
       </div>
     </div>
   </div>
+
+  </div><!-- /.right-column -->
+
+  </div><!-- /.page-layout -->
 
   <script src="script.js"></script>
 </body>
