@@ -331,7 +331,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (successEl){
       successEl.hidden = false;
-      successEl.textContent = 'Thanks, our team will connect with you shortly.';
+      successEl.textContent = 'Thank you! Our team will connect with you.';
       setTimeout(() => successEl.hidden = true, 6000);
     }
 
