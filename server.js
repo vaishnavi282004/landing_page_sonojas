@@ -82,16 +82,6 @@ app.post('/api/inquiry', async (req, res) => {
     // Save to Excel and CSV
     await appendToExcel({ name, phone, email, qualification, course, specialization, university });
     appendToCsv({ name, phone, email, qualification, course, specialization, university });
-
-    // Log the WhatsApp notification
-    const whatsappMsg = `*New Enquiry from Sonojas*\n\n` +
-      `Name: ${name}\n` +
-      `Phone: ${phone}\n` +
-      `Email: ${email}\n` +
-      `Qualification: ${qualification}\n` +
-      `Course: ${course}\n` +
-      `Specialization: ${specialization}\n` +
-      `University: ${university}`;
     
     console.log('\n=================================');
     console.log('📝 NEW ENQUIRY RECEIVED!');
@@ -104,6 +94,7 @@ app.post('/api/inquiry', async (req, res) => {
     console.log('Specialization:', specialization);
     console.log('University:', university);
     console.log('Time:', new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }));
+    console.log('Excel & CSV files updated!');
     console.log('=================================\n');
 
     res.json({ ok: true, message: 'Inquiry saved successfully' });

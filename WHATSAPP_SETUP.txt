@@ -1,0 +1,120 @@
+╔══════════════════════════════════════════════════════════════════╗
+║  WHATSAPP PE CSV FILE BHEJNE KA SETUP - TWILIO                  ║
+╚══════════════════════════════════════════════════════════════════╝
+
+✅ Twilio use karke WhatsApp pe automatically CSV entries bhej sakte ho!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STEP 1: Twilio Account Banao (FREE)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Website kholo: https://www.twilio.com/try-twilio
+2. Sign Up karo (Free trial account)
+3. Phone number verify karo
+4. Dashboard pe jao
+
+
+STEP 2: WhatsApp Sandbox Setup Karo
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Twilio Console me jao
+2. Left menu me "Messaging" → "Try it out" → "Send a WhatsApp message"
+3. WhatsApp Sandbox settings dikhega
+4. Apne phone (7248855566) se Twilio number pe message bhejo:
+   
+   Message: "join <your-sandbox-code>"
+   
+   Example: join happy-monkey
+   
+5. Confirmation message milega - Sandbox activated! ✅
+
+
+STEP 3: Credentials Copy Karo
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Twilio Console → Account Info section me:
+   
+   📋 ACCOUNT SID: Copy karo (Example: ACxxxxxxxxxxxxx)
+   🔑 AUTH TOKEN: Copy karo (Example: your_token_here)
+   
+2. WhatsApp Sandbox number bhi note karo:
+   Example: +14155238886
+
+
+STEP 4: server.js Me Credentials Dalo
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+File: server.js (Line 15-18)
+
+REPLACE:
+   const TWILIO_ACCOUNT_SID = 'your_account_sid';
+   const TWILIO_AUTH_TOKEN = 'your_auth_token';
+
+WITH YOUR VALUES:
+   const TWILIO_ACCOUNT_SID = 'ACxxxxxxxxxxxxx';
+   const TWILIO_AUTH_TOKEN = 'your_token_here';
+
+
+STEP 5: Test Karo!
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Server chalo:
+   node server.js
+
+2. Browser me form fill karo:
+   http://localhost:3000
+
+3. Submit karo
+
+4. 7248855566 pe WhatsApp message aayega:
+   ✔ Entry details
+   ✔ Latest CSV entries
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ KYA HOGA:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✔ Form submit → "Thank you! Our team will connect with you"
+✔ Excel file (inquiries.xlsx) generate hogi
+✔ CSV file (inquiries.csv) generate hogi  
+✔ WhatsApp pe message aayega 7248855566 pe:
+  - Full entry details
+  - Latest 10 CSV entries
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💰 PRICING (FREE TRIAL):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✔ Trial account: $15.50 FREE credit
+✔ WhatsApp message: $0.0042 per message (cheap!)
+✔ ~3700 messages free me!
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📝 NOTE:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+❗ Sandbox mode me sirf verified numbers pe message ja sakta hai
+❗ Production mode ke liye WhatsApp Business API approval chahiye
+❗ CSV file content last 10 entries ka bhejega (file size limit ki wajah se)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔧 ALTERNATIVE - Agar Twilio setup nahi karna:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Simple option: Manual WhatsApp link (already working!)
+- Form submit pe WhatsApp khulta hai
+- Manual CSV file bhej sakte ho later
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📞 Contact: 7248855566 | ✉️ Info.sonojas@gmail.com
