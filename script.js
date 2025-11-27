@@ -322,9 +322,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const waUrl = `https://wa.me/917248855566?text=${encodeURIComponent(waMsg)}`;
     window.open(waUrl, '_blank');
 
-    // Save to backend (optional - for Excel file)
+    // Save to backend (works on both local and Netlify)
     try {
-      await fetch('http://localhost:3000/api/inquiry', {
+      const apiUrl = window.location.hostname === 'localhost' 
+        ? 'http://localhost:3000/api/inquiry'
+        : '/api/inquiry';  // Netlify serverless function
+      
+      await fetch(apiUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -337,6 +341,7 @@ document.addEventListener('DOMContentLoaded', () => {
           specialization: spec
         })
       });
+      console.log('Inquiry saved to backend');
     } catch (err) {
       console.error('Error saving inquiry', err);
     }
