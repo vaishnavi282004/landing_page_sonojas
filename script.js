@@ -183,12 +183,15 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   /* ---- ELEMENTS ---- */
-  const form      = document.getElementById('inquireForm');
+  const form      = document.getElementById('inquiryForm');  // Fixed: was 'inquireForm'
   const successEl = document.getElementById('success');
   const courseSel = document.getElementById('course');
   const specSel   = document.getElementById('specialization');
   const uniSel    = document.getElementById('university');
   const qualSel   = document.getElementById('qualification');
+
+  console.log('Form element:', form); // Debug: check if form is found
+  console.log('Elements loaded:', { form, successEl, courseSel, specSel, uniSel, qualSel });
 
   /* ---- HELPERS ---- */
   function resetSelect(el, label){
@@ -221,36 +224,34 @@ document.addEventListener('DOMContentLoaded', () => {
   courseSel?.addEventListener('change', () => {
     const course = courseSel.value;
 
-    resetSelect(specSel, 'All');
-    specSel.disabled = false;           // course choose होते ही enable
-
-    resetSelect(uniSel, 'Select university');
-    uniSel.disabled = false;           // course choose होते ही enable
-
     if (!course) {
       // no course ⇒ disable dono
+      resetSelect(specSel, 'All');
       specSel.disabled = true;
+      resetSelect(uniSel, 'Select university');
       uniSel.disabled = true;
       return;
     }
 
     // 1) specialization list (union across universities)
+    resetSelect(specSel, 'All');
     const specSet = new Set();
     Object.values(uniData).forEach(cObj => {
       if (cObj[course]) cObj[course].forEach(s => specSet.add(s));
     });
     if (specSet.size){
       fillSelect(specSel, [...specSet]);
+      specSel.disabled = false;  // Enable specialization
     }
 
     // 2) universities jo ye course dete hain
+    resetSelect(uniSel, 'Select university');
     const uniList = Object.entries(uniData)
       .filter(([u, cObj]) => cObj[course])
       .map(([u]) => u);
     if (uniList.length){
       fillSelect(uniSel, uniList);
-    } else {
-      uniSel.disabled = true;
+      uniSel.disabled = false;  // Enable university
     }
   });
 
@@ -288,6 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   form.addEventListener('submit', async e => {
     e.preventDefault();
+    console.log('Form submitted!'); // Debug log
 
     const fd  = new FormData(form);
     const name  = (fd.get('name')  || '').toString().trim();
@@ -297,6 +299,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const course = courseSel?.value || '';
     const uni    = uniSel?.value    || '';
     const spec   = specSel?.value ? specSel.value : 'All';  // default All
+
+    console.log('Form data:', { name, phone, email, qualification, course, uni, spec }); // Debug log
+
+    // Validation check
+    if (!name || !phone || !email || !course || !uni) {
+      alert('Please fill all required fields: Name, Phone, Email, Course, and University');
+      return;
+    }
 
     // Send WhatsApp notification
     const waMsg =
