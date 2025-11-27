@@ -47,9 +47,6 @@ const courseSpecializations = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize EmailJS with your public key
-  emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
-  
   /* ---- DATA (uniData) yahi rakho – agar tumhare file me already hai to wahi use karo ---- */
   const uniData = {
     'Uttaranchal University': {
@@ -300,30 +297,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const course = courseSel?.value || '';
     const uni    = uniSel?.value    || '';
     const spec   = specSel?.value ? specSel.value : 'All';  // default All
-
-    // Send email using EmailJS
-    const emailParams = {
-      from_name: name,
-      from_phone: phone,
-      from_email: email,
-      qualification: qualification,
-      course: course,
-      university: uni,
-      specialization: spec,
-      message: `New Enquiry from Sonojas\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nQualification: ${qualification}\nCourse: ${course}\nUniversity: ${uni}\nSpecialization: ${spec}`
-    };
-
-    try {
-      // Send email to Info.sonojas@gmail.com
-      await emailjs.send(
-        'YOUR_SERVICE_ID',    // Replace with your EmailJS service ID
-        'YOUR_TEMPLATE_ID',   // Replace with your EmailJS template ID
-        emailParams
-      );
-      console.log('Email sent successfully');
-    } catch (error) {
-      console.error('Email sending failed:', error);
-    }
 
     // Send WhatsApp notification
     const waMsg =
